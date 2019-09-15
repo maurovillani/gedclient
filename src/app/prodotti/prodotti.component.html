@@ -1,0 +1,75 @@
+<section class="section">
+	<div class="section-header">
+		<h1>Visualizza Prodotti</h1>
+		<div class="section-header-breadcrumb">
+			<div class="breadcrumb-item active">
+				<a routerLink="/dashboard">Dashboard</a>
+			</div>
+			<div class="breadcrumb-item">
+				<a routerLink="/prodotti">Prodotti</a>
+			</div>
+			<div class="breadcrumb-item">Visualizza Prodotti</div>
+		</div>
+	</div>
+
+	<div class="section-body">
+		<h2 class="section-title">
+			Lista Prodotti
+		</h2>
+		<p class="section-lead">La lista dei prodotti presenti nel sistema</p>
+
+		<div class="row" *ngIf="prodotti.length">
+			<div class="col-12">
+				<div class="card">
+					<div class="card-header">
+						<h4>Lista Prodotti</h4>
+					</div>
+					<div class="card-body p-0">
+						<div class="table-responsive">
+							<table class="table table-striped">
+								<tr>
+									<th>
+										<div class="custom-checkbox custom-control">
+											<input type="checkbox" data-checkboxes="mygroup"
+												data-checkbox-role="dad" class="custom-control-input"
+												id="checkbox-all"> <label for="checkbox-all"
+												class="custom-control-label">&nbsp;</label>
+										</div>
+									</th>
+									<th>Id</th>
+									<th>Codice Prodotto</th>
+									<th>Barcode</th>
+									<th>Q.ta in Colli</th>
+									<th>Q.ta in Pedana</th>
+									<th>Data Inserimento</th>
+									<th>Status</th>
+									<th>Action</th>
+								</tr>
+								<tr *ngFor="let prodotto of prodotti">
+									<td class="p-0 text-center">
+										<div class="custom-checkbox custom-control">
+											<input type="checkbox" data-checkboxes="mygroup"
+												class="custom-control-input" id="checkbox-{{prodotto.id}}"> <label
+												for="checkbox-{{prodotto.id}}" class="custom-control-label">&nbsp;</label>
+										</div>
+									</td>
+									<td>{{prodotto.id}}</td>
+									<td>{{prodotto.codice_prodotto}}</td>
+									<td>{{prodotto.barcode}}</td>
+									<td>{{prodotto.qta_in_colli}}</td>
+									<td>{{prodotto.qta_in_pedana}}</td>
+									<td>2018-01-20</td>
+									<td><div class="badge badge-success">Completed</div></td>
+									<td><a routerLink="/prodotti/{{prodotto.id}}" class="btn btn-icon icon-left btn-primary">Detail</a></td>
+								</tr>
+
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		
+	</div>
+</section>
